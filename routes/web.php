@@ -42,7 +42,7 @@ Route::get('companies/{id}/{company}','CompanyController@index')->name('company.
 
 //Profile
 Route::get('/user/profile','UserProfileController@index');
-Route::post('/user/profile/create','UserProfileController@store')->name('profile.store');
-Route::post('/user/coverLetter','UserProfileController@coverletter')->name('profile.coverletter');
-Route::post('/user/resume','UserProfileController@resume')->name('profile.resume');
-Route::post('/user/avatar','UserProfileController@avatar')->name('profile.avatar');
+Route::post('/user/profile/create','UserProfileController@store')->name('profile.create');
+Route::post('/user/coverLetter','UserProfileController@coverletter')->name('cover.letter');
+Route::post('/user/resume','UserProfileController@resume')->name('resume');
+Route::post('/user/avatar','UserProfileController@avatar')->name('avatar');
