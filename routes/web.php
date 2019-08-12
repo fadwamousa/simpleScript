@@ -46,3 +46,8 @@ Route::post('/user/profile/create','UserProfileController@store')->name('profile
 Route::post('/user/coverLetter','UserProfileController@coverletter')->name('cover.letter');
 Route::post('/user/resume','UserProfileController@resume')->name('resume');
 Route::post('/user/avatar','UserProfileController@avatar')->name('avatar');
+
+
+Route::view('/employer/register','auth.employer_register');
+Route::post('/employer/register','EmployerRegisterController@registerEmp')->name('employer.register');
+
