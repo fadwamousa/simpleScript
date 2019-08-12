@@ -9,16 +9,6 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('contacts','ContactController@index')->name('Home.Conatcs');
 Route::get('contacts/create','ContactController@create');
 Route::post('contacts','ContactController@store')->name('contacts.store');
@@ -30,3 +20,29 @@ Route::delete('contacts/{contact}','ContactController@destroy')->name('contacts.
 
 
 Route::resource('ajax-crud', 'AjaxController');
+*/
+
+
+
+
+
+Route::get('/' , 'JobsController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//Jobs
+Route::get('jobs/{id}/{job}','JobsController@show')->name('jobs.show');
+
+
+
+//Company
+Route::get('companies/{id}/{company}','CompanyController@index')->name('company.index');
+
+
+//Profile
+Route::get('/user/profile','UserProfileController@index');
+Route::post('/user/profile/create','UserProfileController@store')->name('profile.store');
+Route::post('/user/coverLetter','UserProfileController@coverletter')->name('profile.coverletter');
+Route::post('/user/resume','UserProfileController@resume')->name('profile.resume');
+Route::post('/user/avatar','UserProfileController@avatar')->name('profile.avatar');

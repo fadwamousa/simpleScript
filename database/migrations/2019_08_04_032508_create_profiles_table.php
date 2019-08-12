@@ -17,6 +17,14 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('address');
+            $table->string('gender');
+            $table->string('dob');
+            $table->string('experience');
+            $table->text('Description');
+            $table->text('bio');
+            $table->string('cover_letter');
+            $table->string('resume');
+            $table->string('avatar');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

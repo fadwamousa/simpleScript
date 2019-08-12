@@ -8,18 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <form action="{{route('store.jobs')}}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <input type="text" name="" class="form-control">
-                        </div>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-dark">Submit</button>
-                        </div>
-
-
-                    </form>
                 </div>
             </div>
         </div>
