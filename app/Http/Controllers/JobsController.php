@@ -24,8 +24,9 @@ class JobsController extends Controller
     public function index()
     {
         //
-        $jobs = Job::paginate(8);
-        return view('welcome',compact('jobs'));
+        $jobs = Job::latest()->limit(12)->where('status',1)->get();
+        $companies = Company::limit(12)->get();
+        return view('welcome',compact('jobs','companies'));
     }
 
 

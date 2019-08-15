@@ -41,6 +41,31 @@
         <div>
             <button class="btn btn-outline-success btn-lg ">Browse All My Jobs</button>
         </div>
+        <br> <br>
+        <h2>Featured Jobs</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            @foreach($companies as  $company)
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+
+                    <img src="{{asset('uploads/logo')}}/{{$company->logo}}" alt="" width="80">
+
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{$company->name}}</h5>
+                        <p class="card-text">{{str_limit($company->description,20)}}</p>
+                        <a href="{{route('company.index',[$company->id,$company->slug])}}"
+                           class="btn btn-primary">Visit Company
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
 @endsection
 <style>
