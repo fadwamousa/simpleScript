@@ -47,7 +47,17 @@
 
                 @if(Auth::check() && Auth::user()->user_type == 'seeker')
 
-                <button class="btn btn-success btn-sm">Apply</button>
+                    @if(!$job->checkApplication())
+
+                        <form action="{{route('apply',[$job->id])}}" method="POST">
+                            @csrf
+
+                            <button type="submit" class="btn btn-success btn-sm">Apply</button>
+
+
+                        </form>
+                     @endif
+
                 @endif
             </div>
 

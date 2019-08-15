@@ -18,6 +18,7 @@ class CreateJobUserTable extends Migration
             $table->bigInteger('job_id')->unsigned()->index();
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
 
+
             //
         });
     }

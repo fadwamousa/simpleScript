@@ -5,10 +5,20 @@
         <div class="row justify-content-center">
 
             <div class="company-profile">
-                <img src="{{asset('cover/tumblr-image-sizes-banner.png')}}"
-                      style="width: 100%">
+                @if(empty(Auth::user()->company->cover_photo))
+                    <img src="{{asset('cover/tumblr-image-sizes-banner.png')}}" width="100" style="width: 100%;">
+                @else
+                    <img src="{{asset('uploads/coverphoto')}}/{{Auth::user()->company->cover_photo}}" width="700" >
+
+                @endif
+
                 <div class="company-desc">
-                    <img src="{{asset('avatar\serwman1.jpg')}}" width="100">
+                    @if(empty(Auth::user()->company->logo))
+                        <img src="{{asset('avatar/serwman1.jpg')}}" width="80" >
+                    @else
+                        <img src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}" width="80" >
+
+                    @endif
                     <p>{{$company->Description}}</p>
                     <h1>Company Name</h1>
                     <p>Slogan-{{$company->slogan}}&nbsp;Address-{{$company->address}}&nbsp; Phone-{{$company->phone}}&nbsp; Website-{{$company->website}}</p>

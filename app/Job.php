@@ -9,6 +9,8 @@ class Job extends Model
     //
     public $table = 'jobs';
 
+    protected $guarded = [];
+
     public function getRouteKeyName()
     {
         return 'Slug';
@@ -16,6 +18,16 @@ class Job extends Model
 
     public function company(){
         return $this->belongsTo(Company::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class)->withTimeStamps();
+    }
+
+    public function checkApplication(){
+       return  \DB::table('job_user')->where('user_id',auth()->user()->id)
+                                          ->where('job_id',$this->id)
+                                          ->exists();
     }
 
 

@@ -21,7 +21,7 @@ class CreateJobsTable extends Migration
             $table->text('description');
             $table->bigInteger('category_id');
             $table->integer('status');
-            $table->dateTime('last_date');
+            $table->date('last_date');
             $table->timestamps();
         });
     }

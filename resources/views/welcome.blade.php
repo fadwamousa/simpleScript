@@ -15,7 +15,7 @@
                 <tbody>
                   <tr>
                       <td>
-                          <img src="{{ asset('avatar/serwman1.jpg') }}" alt="man photo" width="80">
+                          <img src="{{asset('uploads/logo')}}/{{$job->company->logo}}" alt="" width="80">
                       </td>
                       <td>{{$job->position}}
                           <br>
@@ -34,8 +34,12 @@
 
                 @endforeach
             </table>
-            {{ $jobs->render() }}
 
+
+        </div>
+
+        <div>
+            <button class="btn btn-outline-success btn-lg ">Browse All My Jobs</button>
         </div>
     </div>
 @endsection

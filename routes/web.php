@@ -1,32 +1,15 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-Route::get('contacts','ContactController@index')->name('Home.Conatcs');
-Route::get('contacts/create','ContactController@create');
-Route::post('contacts','ContactController@store')->name('contacts.store');
-
-Route::get('contacts/{contact}/edit','ContactController@edit')->name('update');
-Route::put('contacts/{contact}','ContactController@update')->name('contacts.update');
-Route::delete('contacts/{contact}','ContactController@destroy')->name('contacts.destroy');
-
-
-
-Route::resource('ajax-crud', 'AjaxController');
-*/
-
-
-
-
-
 Route::get('/' , 'JobsController@index');
+Route::get('jobs/create','JobsController@create')->name('jobs.create');
+Route::post('jobs/create','JobsController@store')->name('jobs.store');
+Route::get('jobs/{id}/edit','JobsController@edit')->name('jobs.edit');
+Route::get('jobs/myjob','JobsController@myjob');
+Route::PUT('jobs/{id}','JobsController@update')->name('jobs.update');
+
+
+
+
 
 Auth::routes();
 
@@ -38,10 +21,12 @@ Route::get('jobs/{id}/{job}','JobsController@show')->name('jobs.show');
 
 //Company
 Route::get('companies/{id}/{company}','CompanyController@index')->name('company.index');
+Route::get('companies/create','CompanyController@create')->name('company.view');
+Route::post('companies/create','CompanyController@store')->name('company.store');
+Route::post('companies/coverphoto','CompanyController@coverphoto')->name('cover.photo');
 
-
-//Profile
-Route::get('/user/profile','UserProfileController@index');
+Route::post('company/logo','CompanyController@logo')->name('logo');
+Route::get('/user/profile','UserProfileController@index')->name('profile.view');
 Route::post('/user/profile/create','UserProfileController@store')->name('profile.create');
 Route::post('/user/coverLetter','UserProfileController@coverletter')->name('cover.letter');
 Route::post('/user/resume','UserProfileController@resume')->name('resume');
@@ -50,4 +35,6 @@ Route::post('/user/avatar','UserProfileController@avatar')->name('avatar');
 
 Route::view('/employer/register','auth.employer_register');
 Route::post('/employer/register','EmployerRegisterController@registerEmp')->name('employer.register');
+Route::post('/application/{id}','JobsController@apply')->name('apply');
+Route::get('/jobs/applications','JobsController@applicant');
 

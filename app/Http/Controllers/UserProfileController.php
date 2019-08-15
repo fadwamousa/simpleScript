@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class UserProfileController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('seeker');
+    }
+
     public function index()
     {
         //
