@@ -11,11 +11,13 @@ Route::PUT('jobs/{id}','JobsController@update')->name('jobs.update');
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Jobs
 Route::get('jobs/{id}/{job}','JobsController@show')->name('jobs.show');
+
+Route::get('jobs','JobsController@allJobs')->name('alljobs');
 
 
 

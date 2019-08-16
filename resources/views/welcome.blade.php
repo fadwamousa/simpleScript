@@ -39,7 +39,9 @@
         </div>
 
         <div>
-            <button class="btn btn-outline-success btn-lg ">Browse All My Jobs</button>
+            <a href="{{route('alljobs')}}">
+                <button class="btn btn-outline-success btn-lg ">Browse All My Jobs</button>
+            </a>
         </div>
         <br> <br>
         <h2>Featured Jobs</h2>
@@ -52,14 +54,15 @@
             <div class="col-md-3">
                 <div class="card" style="width: 18rem;">
 
-                    <img src="{{asset('uploads/logo')}}/{{$company->logo}}" alt="" width="80">
 
 
                     <div class="card-body">
+                        <img src="{{asset('uploads/logo')}}/{{$company->logo}}" alt="" width="80">
+
                         <h5 class="card-title">{{$company->name}}</h5>
                         <p class="card-text">{{str_limit($company->description,20)}}</p>
                         <a href="{{route('company.index',[$company->id,$company->slug])}}"
-                           class="btn btn-primary">Visit Company
+                           class="btn btn-outline-primary">Visit Company
                         </a>
                     </div>
                 </div>

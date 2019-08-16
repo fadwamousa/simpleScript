@@ -26,7 +26,7 @@ class EmployerRegisterController extends Controller
             'slug'     => str_slug(request('name'))
         ]);
 
-        return redirect()->to('login');
+        return redirect()->to('login')->with('message','Please Verify the email by clicking link');
 
     }
 }

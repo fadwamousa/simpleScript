@@ -14,7 +14,35 @@ class JobsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('employer')->except(['index','show','apply']);
+        $this->middleware('employer')->except(['index','show','apply','allJobs']);
+    }
+
+    public function allJobs(Request $request){
+
+        $keyword = $request->get('title');
+        $type    = $request->get('type');
+        $category = $request->get('category_id');
+        $address = $request->get('address');
+
+        if($keyword || $type || $category || $address){
+            $jobs = Job::where('title','LIKE','%'.$keyword.'%')
+                       ->orWhere('type',$type)
+                       ->orWhere('address',$address)
+                       ->orWhere('category_id',$category)
+                       ->paginate(10);
+
+            $categories = Category::all();
+            return view('jobs.alljobs',compact('jobs','categories'));
+        }else{
+
+            $jobs = Job::latest()->paginate(10);
+            $categories = Category::all();
+            return view('jobs.alljobs',compact('jobs','categories'));
+
+
+        }
+
+
     }
 
 
