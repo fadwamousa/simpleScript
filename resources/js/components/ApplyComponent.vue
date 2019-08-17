@@ -1,18 +1,25 @@
 <template>
-    <div id="app">
 
-        <form @submit="formSubmit(e)">
+    <div>
+
+        <form @submit="formSubmit">
 
 
-                <button v-if="show"  class="btn btn-success btn-sm">Apply</button>
+            <button v-if="show"  class="btn btn-success btn-sm">Apply</button>
 
-                <div v-else class="alert alert-success">
-                    Application Sent Successfuly
-                </div>
+            <div v-else class="alert alert-success">
+                Application Sent Successfuly
+            </div>
 
         </form>
 
+
+
+
     </div>
+
+
+
 </template>
 
 <script>
@@ -26,14 +33,17 @@
                 'show':true
             }
         },
-        methods:{
+        methods: {
 
-            forSubmit(e){
+            formSubmit(e) {
 
+                e.preventDefault();
 
+                axios.post('/application/' + this.jobid, {}).then((response) => {
+                    this.show = false;
+                }).catch((error)=> alert('This is Alert Thing'));
 
             }
-
         }
     }
 </script>
