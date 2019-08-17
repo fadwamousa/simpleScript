@@ -14,7 +14,7 @@ class JobsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('employer')->except(['index','show','apply','allJobs']);
+        $this->middleware('employer')->except(['index','show','apply','allJobs','searchJobs']);
     }
 
     public function allJobs(Request $request){
@@ -101,6 +101,17 @@ class JobsController extends Controller
     public function applicant(){
         $applicants = Job::has('users')->where('user_id',Auth::user()->id)->get();
         return view('jobs.applicant',compact('applicants'));
+    }
+
+    public function searchJobs(Request $request){
+
+        $keyword = $request->get('keyword');
+        $users   = Job::where('title','LIKE','%'.$keyword.'%')
+                   ->orWhere('position','LIKE','%'.$keyword.'%')
+                   ->limit(5)
+                   ->get();
+        return response()->json($users);
+
     }
 
 

@@ -40,3 +40,8 @@ Route::post('/employer/register','EmployerRegisterController@registerEmp')->name
 Route::post('/application/{id}','JobsController@apply')->name('apply');
 Route::get('/jobs/applications','JobsController@applicant');
 
+
+Route::post('save/{id}','FavouriteController@saveJob');
+Route::post('unsave/{id}','FavouriteController@unsaveJob');
+
+Route::get('jobs/search','JobsController@searchJobs');

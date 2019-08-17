@@ -49,14 +49,13 @@
 
                     @if(!$job->checkApplication())
 
-                        <form action="{{route('apply',[$job->id])}}" method="POST">
-                            @csrf
-
-                            <button type="submit" class="btn btn-success btn-sm">Apply</button>
+                        <apply-component :jobid="{{$job->id}}"></apply-component>
 
 
-                        </form>
                      @endif
+                        <br>
+
+                        <favorite-component :jobid="{{$job->id}}" :favorited="{{$job->checkSaved()?'true':'false'}}"></favorite-component>
 
                 @endif
             </div>

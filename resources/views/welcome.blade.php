@@ -4,6 +4,13 @@
     <div class="container">
         <div class="row">
 
+            <div class="col-md-12">
+                <search-component></search-component>
+            </div>
+
+            <br>
+            <br>
+
             <h2>Recent Jobs</h2>
 
             <table class="table">
