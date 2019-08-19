@@ -1,5 +1,9 @@
 <?php
 
+Route::view('/demo','demo');
+
+
+
 Route::get('/' , 'JobsController@index');
 Route::get('jobs/create','JobsController@create')->name('jobs.create');
 Route::post('jobs/create','JobsController@store')->name('jobs.store');
