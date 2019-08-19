@@ -1,52 +1,10 @@
 @extends('layouts.main')
 @section('content')
 
-
-
     <div class="container">
         <div class="row">
-            <form action="{{route('alljobs')}}" method="GET">
 
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label>Position&nbsp;</label>
-                        <input type="text" name="position" class="form-control" placeholder="job position">&nbsp;&nbsp;&nbsp;
-                    </div>
-                    <div class="form-group">
-                        <label>Employment &nbsp;</label>
-                        <select class="form-control" name="type">
-                            <option value="">-select-</option>
-                            <option value="fulltime">fulltime</option>
-                            <option value="parttime">parttime</option>
-                            <option value="casual">casual</option>
-                        </select>
-                        &nbsp;&nbsp;
-                    </div>
-                    <div class="form-group">
-                        <label>category</label>
-                        <select name="category_id" class="form-control">
-                            <option value="">-select-</option>
-
-                            @foreach(App\Category::all() as $cat)
-                                <option value="{{$cat->id}}">{{$cat->name}}</option>
-                            @endforeach
-                        </select>
-                        &nbsp;&nbsp;
-                    </div>
-
-                    <div class="form-group">
-                        <label>address</label>
-                        <input type="text" name="address" class="form-control" placeholder="address">&nbsp;&nbsp;
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-search btn-primary btn-block" value="Search">
-
-                    </div>
-                </div>    <br>
-
-            </form>
-
+            <h2>{{$catName->name}}</h2>
             <div class="col-md-12">
                 <div class="rounded border jobs-wrap">
                     @if(count($jobs)>0)
@@ -96,12 +54,11 @@
 
             {{$jobs->appends(Illuminate\Support\Facades\Input::except('page'))->links()}}
 
+
+
         </div>
-
     </div>
-
-
-
+    <br>
 
 @endsection
 

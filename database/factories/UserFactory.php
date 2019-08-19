@@ -46,7 +46,11 @@ $factory->define(Job::class, function (Faker $faker) {
         'status'=>rand(0,1),
         'description'=>$faker->paragraph(rand(2,10)),
         'roles' => $faker->text,
-        'last_date'=>$faker->DateTime
+        'last_date'=>$faker->DateTime,
+        'number_of_vacancy' => rand(1,10),
+        'experience' =>$faker->randomDigit,
+        'gender' => $faker->randomElement(['male','female']),
+        'salary' => rand(10000,50000)
 
 
 

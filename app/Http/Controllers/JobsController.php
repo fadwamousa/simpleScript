@@ -53,8 +53,9 @@ class JobsController extends Controller
     {
         //
         $jobs = Job::latest()->limit(12)->where('status',1)->get();
-        $companies = Company::limit(12)->get();
-        return view('welcome',compact('jobs','companies'));
+        $companies  = Company::limit(12)->get();
+        $categories = Category::with('jobs')->get();
+        return view('welcome',compact('jobs','companies','categories'));
     }
 
 
@@ -144,7 +145,11 @@ class JobsController extends Controller
            'category_id' => $request->category_id,
            'type'        => $request->type,
            'status'      => $request->status,
-           'last_date'   => $request->last_date
+           'last_date'   => $request->last_date,
+           'number_of_vacancy' => $request->number_of_vacancy,
+           'experience'  => $request->experience,
+           'gender'      => $request->gender,
+           'salary'      => $request->salary
        ]);
 
        return redirect()->back()->with('message','Job Is Created ');
@@ -188,7 +193,11 @@ class JobsController extends Controller
             'category_id' => $request->category_id,
             'type'        => $request->type,
             'status'      => $request->status,
-            'last_date'   => $request->last_date
+            'last_date'   => $request->last_date,
+            'number_of_vacancy' => $request->number_of_vacancy,
+            'experience'  => $request->experience,
+            'gender'      => $request->gender,
+            'salary'      => $request->salary
 
         ]);
 

@@ -113,6 +113,54 @@
 
                             </div>
                             <div class="form-group">
+                                <label for="number_of_vacancy">No of vacancy:</label>
+                                <input type="text"
+                                       name="number_of_vacancy"
+                                       class="form-control{{ $errors->has('number_of_vacancy') ? ' is-invalid' : '' }}"
+                                       value="{{ $job->number_of_vacancy }}">
+                                @if ($errors->has('number_of_vacancy'))
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('number_of_vacancy') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience">Year of experience:</label>
+                                <input type="text"
+                                       name="experience"
+                                       class="form-control{{ $errors->has('experience') ? ' is-invalid' : '' }}"
+                                       value="{{ $job->experience }}">
+                                @if ($errors->has('experience'))
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('experience') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="type">Gender:</label>
+                                <select class="form-control" name="gender">
+                                    <option value="any">Any</option>
+                                    <option value="male"{{$job->gender=='male'?'selected':''}}>male</option>
+                                    <option value="female"{{$job->gender=='female'?'selected':''}}>female</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="type">Salary/year:</label>
+                                <select class="form-control" name="salary">
+                                    <option value="negotiable">Negotiable</option>
+                                    <option value="2000-5000">2000-5000</option>
+                                    <option value="50000-10000">5000-10000</option>
+                                    <option value="10000-20000">10000-20000</option>
+                                    <option value="30000-500000">50000-500000</option>
+                                    <option value="500000-600000">500000-600000</option>
+
+                                    <option value="600000 plus">600000 plus</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="type">type</label>
                                 <select name="type" id="" class="form-control">
                                     <option value="fulltime"{{$job->type=='fulltime'?'selected':''}}>fullTime</option>

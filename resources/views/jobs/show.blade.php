@@ -69,7 +69,7 @@
 
                 <div class="col-md-4 p-4 site-section bg-light">
                     <h3 class="h5 text-black mb-3 text-center">Short Info</h3>
-                    <p>Company name:{{$job->company->cname}}</p>
+                    <p>Company name:{{$job->company->name}}</p>
                     <p>Address:{{$job->address}}</p>
                     <p>Employment Type:{{$job->type}}</p>
                     <p>Position:{{$job->position}}</p>
@@ -78,7 +78,21 @@
 
 
 
-                    <p><a href="{{route('company.index',[$job->company->id,$job->company->slug])}}" class="btn btn-warning" style="width: 100%;">Visit Company Page</a></p>
+                    <p>
+                        <a href="{{route('company.index',[$job->company->id,$job->company->slug])}}"
+                           class="btn btn-primary" style="width: 100%;">Visit Company Page
+                        </a>
+                    </p>
+                    <p>
+                        <a href="{{route('company.index',[$job->company->id,$job->company->slug])}}"
+                           class="btn btn-warning" style="width: 100%;">Apply
+                        </a>
+                    </p>
+                    <p>
+                        <a href="{{route('company.index',[$job->company->id,$job->company->slug])}}"
+                           class="btn btn-dark" style="width: 100%;">Save
+                        </a>
+                    </p>
                     <p>
                         @if(Auth::check()&&Auth::user()->user_type=='seeker')
 

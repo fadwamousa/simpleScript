@@ -26,6 +26,8 @@ Route::get('jobs','JobsController@allJobs')->name('alljobs');
 
 
 //Company
+
+Route::get('companies','CompanyController@company')->name('company');
 Route::get('companies/{id}/{company}','CompanyController@index')->name('company.index');
 Route::get('companies/create','CompanyController@create')->name('company.view');
 Route::post('companies/create','CompanyController@store')->name('company.store');
@@ -49,3 +51,4 @@ Route::post('save/{id}','FavouriteController@saveJob');
 Route::post('unsave/{id}','FavouriteController@unsaveJob');
 
 Route::get('jobs/search','JobsController@searchJobs');
+Route::get('category/{id}/jobs','CategoryController@index')->name('category.index');

@@ -25,7 +25,7 @@
                                         <a href="{{route('employer.register')}}">For Employees</a>
 
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{{route('company')}}">Companies</a></li>
                                     <li>
 
                                         @if(!Auth::check())
@@ -142,4 +142,4 @@
 
 
 
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
